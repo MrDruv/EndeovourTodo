@@ -16,11 +16,14 @@
     task.className = "task";
 
     task.innerHTML = `
+    <div>
     <div class="task-header" onclick="this.nextElementSibling.classList.toggle('show')">
       <label><input type="checkbox"> ${taskText}</label>
-      
+      <button onclick="editTask(button)">Edit</button>
+      <button onclick="this.closest('.task').remove()">Delete</button>
       
     </div>
+    
     <div class="task-body">
       <label>Notes</label>
       <textarea placeholder="Write your notes..."></textarea>
@@ -35,13 +38,11 @@
         <option>Low</option>
       </select>
 
-      <button onclick="this.closest('.task').remove()">Delete</button>
-      <button oncick="this.closest()
+      
+    <div>
     </div>
   `;
-  
-
-    taskList.appendChild(task);
+   taskList.appendChild(task);
     inputBox.value = "";
     checkbox.addEventListener("change", function () {
     if (this.checked) {
@@ -51,6 +52,23 @@
     }
 });
   }
+    function editTask(button) {
+    const task = button.closest('.task');
+    const label = task.querySelector('.task-header label');
+    const input = label.querySelector('input[type="checkbox"]');
+    const taskTextNode = label.childNodes[1];
+
+    const currentText = taskTextNode.nodeValue.trim();
+    const newText = prompt("Edit task:", currentText);
+
+    if (newText !== null && newText.trim() !== "") {
+      taskTextNode.nodeValue = " " + newText;
+    }
+}
+
+
+   
+  
 
 
 
