@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endeavour-like To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="sidebar">
+            <div class="flex items-center justify-between mb-4">
+                <h2 style="color: white; ;"><b>New List</b></h2>
+                 <button id="newListBtn" class="new-list-btn">
+                    <i class="fa-solid fa-angle-down"></i></i>
+                </button>
+            </div>
+            <ul class="space-y-2" id="sidebarList">
+                <li data-list="inbox" class="sidebar-item">
+                    <i class="fa-solid fa-inbox"></i>Inbox
+                </li>
+                <li data-list="today" class="sidebar-item">
+                    <i class="fa-solid fa-calendar-day"></i> Today
+                </li>
+                <li data-list="next7days" class="sidebar-item">
+                    <i class="fa-solid fa-calendar-week"></i> Next 7 Days
+                </li>
+                <li data-list="all" class="sidebar-item">
+                    <i class="fa-solid fa-table-list"></i> All
+                </li>
+                <li data-list="archived" class="sidebar-item">
+                    <i class="fa-solid fa-box-archive"></i>Archived
+                </li>
+            </ul>
+        </div>
+        <div class="Header">Endeavour</div>
+        <main class="main-content">
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+                
+                
+                <div id="inputContainer" class="mb-4" style="display: none;">
+                    <input type="text" id="taskInput" placeholder="Add a new task..." class="input-text">
+                    <input type="date" id="taskDate" class="input-date">
+                    <textarea id="taskNotes" placeholder="Add notes..." class="input-notes"></textarea>
+                    <button id="addTaskBtn" class="add-task-btn">Add Task</button>
+                </div>
+                <input type="text" placeholder="+new tasks..." id="showInputBtn" class="show-input-btn">
+                <ul id="taskList" class="space-y-3">
+                    </ul>
+            </div>
+        </main>
+    </div>
+
+    <div id="newListModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New List</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <label for="listName">List Name:</label>
+                <input type="text" id="listNameInput" placeholder="Enter list name...">
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn">Cancel</button>
+                <button class="create-btn">Create List</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+
+</body>
+</html>
+       
